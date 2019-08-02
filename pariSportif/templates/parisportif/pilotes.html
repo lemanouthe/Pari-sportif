@@ -1,0 +1,51 @@
+{% load staticfiles %}
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css/mystyle.css'%}"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>SITE PARI SPORTIF
+      {% block title%} PILOTES {% endblock%}</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav style="margin-bottom:40px;">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="{% url 'index' %}" role="tab" aria-controls="nav-profile" aria-selected="false">HOME</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="{% url 'pariSportif:pilotes' %}" role="tab" aria-controls="nav-profile" aria-selected="false">PILOTES</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="{% url 'pariSportif:equipes' %}" role="tab" aria-controls="nav-contact" aria-selected="false">EQUIPES</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="{% url 'pariSportif:login' %}" role="tab" aria-controls="nav-contact" aria-selected="false">LOGIN</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="{% url 'pariSportif:register' %}" role="tab" aria-controls="nav-contact" aria-selected="false">REGISTER</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="{% url 'pariSportif:agenda' %}" role="tab" aria-controls="nav-contact" aria-selected="false">AGENDA</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="{% url 'pariSportif:rang' %}" role="tab" aria-controls="nav-contact" aria-selected="false">RANG</a>
+        </div>
+      </nav>
+
+      <div class="row">
+        {% for posts in var_equipes %}
+        {% for pilote in posts.equipes_pilote.all %}
+        <div class="col-md-3">
+          <div class="card" style="width: 260px; margin-bottom:20px;">
+            <img src="{{ media_url}}{{ pilote.image }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <div>
+                <img src="{{ media_url}}{{ pilote.drapeau_pilote }}" alt="" width="25px;" style="float:left;"><p class="ms-item-driver_number" style="float:right">{{ pilote.numéro}}</p>
+              </div><br>
+              <h5 class="card-title font-weight-bold">{{ pilote.nom_pilote }}</h5>
+              <p class="card-text">Team : <a href="#">{{ posts.name_equipes }}</a></p>
+              <p class="card-text">Nationalité : {{ pilote.nationalité }}</p>
+              <a href="#" class="btn btn-primary">Plus d'info</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

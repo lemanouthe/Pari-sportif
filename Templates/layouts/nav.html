@@ -1,0 +1,28 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="{% url 'index' %}" role="tab" aria-controls="nav-profile" aria-selected="false">HOME</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="{% url 'pariSportif:pilotes' %}" role="tab" aria-controls="nav-profile" aria-selected="false">PILOTES</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="{% url 'pariSportif:equipes' %}" role="tab" aria-controls="nav-contact" aria-selected="false">EQUIPES</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="{% url 'pariSportif:login' %}" role="tab" aria-controls="nav-contact" aria-selected="false">LOGIN</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="{% url 'pariSportif:register' %}" role="tab" aria-controls="nav-contact" aria-selected="false">REGISTER</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="{% url 'pariSportif:profile' %}" role="tab" aria-controls="nav-profile" aria-selected="false"> VOIR PROFILE</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="{% url 'pariSportif:agenda' %}" role="tab" aria-controls="nav-contact" aria-selected="false">AGENDA</a>
+          <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="{% url 'pariSportif:rang' %}" role="tab" aria-controls="nav-contact" aria-selected="false">RANG</a>
+        </div>
+      </nav>
+      </div>
+  </body>
+</html>
